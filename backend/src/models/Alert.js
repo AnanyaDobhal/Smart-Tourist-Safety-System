@@ -7,37 +7,26 @@ const Alert = sequelize.define('Alert', {
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
   },
-
   touristId: {
     type: DataTypes.UUID,
     allowNull: false
   },
-
-  // ❌ ENUM REMOVED
-  // ✅ STRING USED
   type: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM('PANIC', 'GEOFENCE', 'INACTIVITY'),
     allowNull: false
   },
-
   latitude: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-
   longitude: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-
-  // ❌ ENUM REMOVED
   status: {
-    type: DataTypes.STRING,
+    type: DataTypes.ENUM('OPEN', 'ACKNOWLEDGED', 'RESOLVED'),
     defaultValue: 'OPEN'
   }
-
-}, {
-  timestamps: true
 });
 
 module.exports = Alert;

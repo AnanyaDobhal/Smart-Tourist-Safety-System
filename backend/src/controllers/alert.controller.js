@@ -24,6 +24,7 @@ exports.panicAlert = async (req, res) => {
       alert
     });
 
+
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
