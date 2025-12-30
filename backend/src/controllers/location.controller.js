@@ -1,21 +1,27 @@
 const { saveLocation } = require('../services/location.service');
-
+const { verifySignature } = require('../services/pki.service');
+const User = require('../models/User');
 /**
  * LIVE LOCATION UPDATE API
  */
 exports.updateLocation = async (req, res) => {
-  try {
-    const { touristId, latitude, longitude } = req.body;
+  const { user_id, payload, signature } = req.body;
 
-    if (!touristId || !latitude || !longitude) {
-      return res.status(400).json({ error: 'Missing location data' });
-    }
+  const user = await User.findByPk(user_id);
 
-    await saveLocation({ touristId, latitude, longitude });
-
-    res.json({ message: 'Location updated successfully' });
-
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+  if (!user || !user.public_key) {
+    return res.status(401).json({ error: "Key not registered" });
   }
+
+  const isValid = verifySignature(
+    user.public_key,
+    payload,
+    signature
+  );
+
+  if (!isValid) {
+    return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  // ✅ PKI passed → now update location
 };

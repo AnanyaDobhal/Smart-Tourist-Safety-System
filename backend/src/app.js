@@ -29,4 +29,3 @@ app.use('/api/location', require('./routes/location.routes'));
 app.use('/api/alerts', require('./routes/alert.routes'));
 
 module.exports = app;
-
