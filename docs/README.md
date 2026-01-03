@@ -92,6 +92,7 @@ npx nodemon src/server.js
 ```
 
 ### 2️⃣ Register Tourist (API Test)
+```bash
 curl -X POST http://localhost:5000/api/tourist/register \
   -H "Content-Type: application/json" \
   -d '{
@@ -100,11 +101,11 @@ curl -X POST http://localhost:5000/api/tourist/register \
     "visitStart": "2025-02-01",
     "visitEnd": "2025-02-10"
   }'
-
-
+```
 ➡️ Copy the returned touristId.
 
 ### 3️⃣ Trigger Panic Alert
+```bash
 curl -X POST http://localhost:5000/api/alerts/panic \
   -H "Content-Type: application/json" \
   -d '{
@@ -112,12 +113,14 @@ curl -X POST http://localhost:5000/api/alerts/panic \
     "latitude": 27.1767,
     "longitude": 78.0081
   }'
+```
 
 ### 4️⃣ Start Police Dashboard
+```bash
 cd dashboard
 npm install
 npm run dev
-
+```
 
 Open in browser:
 http://localhost:5173
@@ -130,4 +133,5 @@ http://localhost:5173
 - Multilingual support
 - E-FIR automation
 - Mobile app (Flutter)
+
 
