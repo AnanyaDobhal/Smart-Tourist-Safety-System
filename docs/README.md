@@ -89,6 +89,7 @@ smart-tourist-safety-system/
 cd backend
 npm install
 npx nodemon src/server.js
+```
 
 ### 2️⃣ Register Tourist (API Test)
 curl -X POST http://localhost:5000/api/tourist/register \
@@ -129,3 +130,4 @@ http://localhost:5173
 - Multilingual support
 - E-FIR automation
 - Mobile app (Flutter)
+
