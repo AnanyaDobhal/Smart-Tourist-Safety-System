@@ -1,24 +1,26 @@
-export default function Header() {
+export default function Header({ toggle }) {
   return (
-    <div style={styles.header}>
-      <h2>Official Departments</h2>
-      <input placeholder="Search…" style={styles.search} />
-    </div>
+    <header className="app-header">
+      {/* LEFT */}
+      <div className="header-left">
+        <span className="menu-btn" onClick={toggle}>☰</span>
+        <span className="logo">🌊 Tourist Safety System</span>
+      </div>
+
+      {/* CENTER */}
+      <div className="header-center">
+        <input
+          type="text"
+          placeholder="Search analyses, datasets..."
+        />
+      </div>
+
+      {/* RIGHT */}
+      <div className="header-right">
+        <span>Help</span>
+        <span>Docs</span>
+        <span>Feedback</span>
+      </div>
+    </header>
   );
 }
-
-const styles = {
-  header: {
-    height: "60px",
-    background: "#ffffff",
-    borderBottom: "1px solid #ddd",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0 20px",
-  },
-  search: {
-    padding: "6px",
-    width: "260px",
-  },
-};

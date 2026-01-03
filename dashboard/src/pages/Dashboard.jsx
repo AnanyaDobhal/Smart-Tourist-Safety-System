@@ -42,12 +42,12 @@ export default function Dashboard() {
           <StatCard title="Today’s Incidents" value="2" subtitle="Reported today" />
         </div>
 
-        {/* 🔹 CHART SECTION */}
+        {/* 🔹 CHARTS */}
         <div style={styles.chartGrid}>
           {/* Line Chart */}
           <div style={styles.chartCard}>
-            <h3>Incidents This Week</h3>
-            <ResponsiveContainer width="100%" height={250}>
+            <h3 style={styles.chartTitle}>Incidents This Week</h3>
+            <ResponsiveContainer width="100%" height={260}>
               <LineChart data={incidentData}>
                 <XAxis dataKey="day" />
                 <YAxis />
@@ -64,8 +64,8 @@ export default function Dashboard() {
 
           {/* Pie Chart */}
           <div style={styles.chartCard}>
-            <h3>Alert Types</h3>
-            <ResponsiveContainer width="100%" height={250}>
+            <h3 style={styles.chartTitle}>Alert Types</h3>
+            <ResponsiveContainer width="100%" height={260}>
               <PieChart>
                 <Pie
                   data={alertData}
@@ -88,20 +88,44 @@ export default function Dashboard() {
   );
 }
 
+/* ================= STYLES ================= */
+
 const styles = {
+  container: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0 32px",
+  },
+
+  heading: {
+    fontSize: "36px",
+    fontWeight: "700",
+    marginBottom: "40px",
+  },
+
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, 1fr)", // 🔥 FIX
+    gridTemplateColumns: "repeat(2, minmax(280px, 1fr))",
     gap: "24px",
-    marginBottom: "32px",
+    marginBottom: "36px",
+  },
+
+  chartGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gap: "32px",
   },
 
   chartCard: {
-    gridColumn: "1 / -1",   // 🔥 chart full width
-    background: "#fff",
+    background: "#ffffff",
     padding: "24px",
-    borderRadius: "10px",
+    borderRadius: "12px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
   },
-};
 
+  chartTitle: {
+    marginBottom: "16px",
+    fontSize: "18px",
+    fontWeight: "600",
+  },
+};
