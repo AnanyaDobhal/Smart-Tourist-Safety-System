@@ -72,8 +72,60 @@ This project proposes a **Smart Tourist Safety System** that digitally protects 
 ## 📂 Project Structure
 smart-tourist-safety-system/
 │
-├── backend/ # Node.js + Express APIs
+├── backend/ # Node.js + Express APIs 
 ├── dashboard/ # React Police Dashboard
 ├── ai-engine/ # AI / anomaly detection (future)
 ├── database/ # DB schema & seed files
 └── README.md
+
+
+---
+
+## ▶️ How to Run the Project
+
+### 1️⃣ Start Backend
+
+```bash
+cd backend
+npm install
+npx nodemon src/server.js
+
+### 2️⃣ Register Tourist (API Test)
+curl -X POST http://localhost:5000/api/tourist/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "fullName": "John Doe",
+    "passportNumber": "P1234567",
+    "visitStart": "2025-02-01",
+    "visitEnd": "2025-02-10"
+  }'
+
+
+➡️ Copy the returned touristId.
+
+### 3️⃣ Trigger Panic Alert
+curl -X POST http://localhost:5000/api/alerts/panic \
+  -H "Content-Type: application/json" \
+  -d '{
+    "touristId": "PASTE_REAL_TOURIST_ID_HERE",
+    "latitude": 27.1767,
+    "longitude": 78.0081
+  }'
+
+### 4️⃣ Start Police Dashboard
+cd dashboard
+npm install
+npm run dev
+
+
+Open in browser:
+http://localhost:5173
+
+## 🔮 Future Enhancements
+
+- AI-based anomaly detection
+- Geo-fencing restricted zones
+- Firebase push notifications
+- Multilingual support
+- E-FIR automation
+- Mobile app (Flutter)
