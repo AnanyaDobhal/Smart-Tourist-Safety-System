@@ -1,31 +1,79 @@
-#Our theme: web/app
-#PS:   This problem statement proposes the development of a Smart Tourist Safety Monitoring & Incident Response System.
-      Tourist often face safety issues. There is no centralised system for real time location tracking and emergency alerting to the authorities. 
-#Solution approach: 
-    Our system allows tourist to register and share their live location. 
-    In case of emergency, by pressing panic button alerts are sent to police and tourism depts.
-    All the data is managed through a centralised backend , PKI + digitalised signatures is used for verification.
-#Features of our prototype:
-    Tourist registration 
-    Unique ID generation (RSA for PKI)
-    Location tracking 
-    Emergency alert system 
-    Rest APIs using Node.js and  Express 
-    Database storage (PostgreSQL) 
-#System Architecture: 
-    A mobile application facilitates interaction between tourists.
-    Users of the Tourism, Police, and Administration departments have access to a single web dashboard.
-    A centralized Node.js backend facilitates communication between all clients.
-    Data is stored in a PostgreSQL database and requests are handled by the backend.
-    Emergency alerts are prioritized and made visible to authorities.
-#Prototype status:
-    This is a minimal working prototype.
-    A single web based dashboard for admin, police and tourism dept users.
-    Core backend APIs are implemented.
-    Frontend is basic/ under development.
-    This application runs locally.
-#Planned improvements for Round 2 :
-    Cloud deployment 
-    Real time notification 
-    Mobile app integration for tourists to enable live location sharing 
-    Improve system scalability, logging and monitoring for real world usage
+# 🛡️ Smart Tourist Safety Monitoring & Incident Response System
+
+A **hackathon prototype** that demonstrates a smart, secure, and real-time tourist safety platform using  
+**AI, Cryptography (PKI), Geo-location, and Web Dashboards**.
+
+---
+
+## 🚀 Problem Statement
+
+Tourist safety in remote and high-risk regions requires **real-time monitoring, rapid incident response, and secure identity verification**.
+
+Traditional manual systems fail due to:
+- Lack of live visibility
+- Delayed response time
+- No secure, verifiable tourist identity
+- Poor coordination between departments
+
+This project proposes a **Smart Tourist Safety System** that digitally protects tourists while respecting privacy.
+
+---
+
+## 🎯 Key Features (Prototype Scope)
+
+### ✅ Digital Tourist ID (PKI-based)
+- Secure tourist registration
+- UUID-based Tourist ID
+- RSA digital signature (tamper-proof)
+- Time-bound validity
+
+### 🚨 Panic Button & Live Alerts
+- Tourist can trigger panic alert
+- Live GPS location captured
+- Alert stored securely in backend
+- Real-time visibility on police dashboard
+
+### 🗺️ Police Dashboard (Web)
+- Sidebar + header UI (government-style)
+- Dashboard overview
+- Live Tourist Map (OpenStreetMap)
+- Active alerts visualization
+- Click marker → view alert details
+
+### 🔐 Security First
+- UUID enforcement
+- PKI & digital signatures
+- API-first backend
+- Clear separation of concerns
+
+---
+
+## 🧱 Tech Stack
+
+### Frontend
+- **React.js** (Vite)
+- **Leaflet + OpenStreetMap**
+- Axios
+- React Router
+
+### Backend
+- **Node.js + Express**
+- PostgreSQL
+- Sequelize ORM
+- JWT (ready, partially implemented)
+
+### Security
+- RSA Cryptography (Node.js `crypto`)
+- UUID-based identity
+- Digital signatures
+
+---
+
+## 📂 Project Structure
+smart-tourist-safety-system/
+│
+├── backend/ # Node.js + Express APIs
+├── dashboard/ # React Police Dashboard
+├── ai-engine/ # AI / anomaly detection (future)
+├── database/ # DB schema & seed files
+└── README.md
