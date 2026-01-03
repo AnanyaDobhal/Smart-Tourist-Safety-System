@@ -14,11 +14,6 @@ sequelize.authenticate()
   .then(() => console.log('PostgreSQL connected'))
   .catch(err => console.error('DB connection error:', err));
 
-// Sync models
-sequelize.sync({ alter: true })
-  .then(() => console.log('All models synced'))
-  .catch(err => console.error('Sync error:', err));
-
 app.get('/', (req, res) => {
   res.send('Smart Tourist Safety Backend Running');
 });

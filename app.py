@@ -57,7 +57,6 @@ def register():
         "message": "Tourist registered successfully",
         "user_id": user_id
     })
-
 # -------------------------
 # LOCATION UPDATE (SECURE)
 # -------------------------
