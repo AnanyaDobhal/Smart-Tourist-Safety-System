@@ -1,9 +1,8 @@
-export default function Header({ toggle }) {
+export default function Header() {
   return (
     <header className="app-header">
       {/* LEFT */}
       <div className="header-left">
-        <span className="menu-btn" onClick={toggle}>☰</span>
         <span className="logo">🌊 Tourist Safety System</span>
       </div>
 

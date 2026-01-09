@@ -9,24 +9,24 @@ export default function Landing() {
       {/* HERO SECTION */}
       <section className="hero">
         <div className="hero-left">
-          <div className="logo">Team Name</div>
+          <div className="logo">SmartTourist.AI</div>
 
           <h1>
-            Smart Tourist Safety System:
+            Safety Reimagined.
           </h1>
 
           <h2>
-            AI-Powered Tourist Safety, Monitoring & Emergency Response
+            Next-Gen Tourist Monitoring & Rapid Response
           </h2>
 
           <p>
-            Ensuring tourist safety through real-time monitoring, intelligent alerts,
-            and rapid incident response using modern web and mapping technologies.
+            Experience the future of travel safety with our AI-powered ecosystem. 
+            Real-time tracking, intelligent threat detection, and instant emergency dispatch—all in one beautiful dashboard.
           </p>
 
           <div className="hero-buttons">
             <button className="primary-btn" onClick={() => navigate("/login")}>
-              GO TO CONSOLE ≋
+              Launch Console 🚀
             </button>
 
             <span
@@ -37,7 +37,7 @@ export default function Landing() {
                   .scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Explore Core Features →
+              See How It Works ↓
             </span>
           </div>
         </div>
@@ -47,54 +47,48 @@ export default function Landing() {
 
       {/* FEATURES SECTION */}
       <section className="features" id="features">
-        <h3>Integrated Intelligence</h3>
+        <h3>Power-Packed Modules</h3>
 
         <div className="feature-grid">
           <div className="card">
-            <h4>Real-time location tracking</h4>
+            <h4>Live Geo-Fencing</h4>
             <p>
-              Track tourist locations and incidents on an interactive
-              OpenStreetMap interface.
+              Set virtual safety perimeters. Receive instant alerts if tourists enter restricted or high-risk zones.
             </p>
           </div>
 
           <div className="card">
-            <h4>Instant Alert System</h4>
+            <h4>Digital Identity</h4>
             <p>
-              Receive and manage SOS alerts, emergency signals,
-              and suspicious activity reports instantly.
+              Seamless QR-based verification. Verify tourist identities in seconds without physical paperwork.
             </p>
           </div>
 
           <div className="card">
-            <h4>Digital Tourist Identity</h4>
+            <h4>Panic Response</h4>
             <p>
-              Generate and manage secure digital tourist IDs
-              for quick verification during emergencies.
+              One-tap SOS triggers immediate protocol activation, dispatching nearest units to the exact coordinates.
             </p>
           </div>
 
           <div className="card">
-            <h4>Secure & Reliable</h4>
+            <h4>Crowd Analytics</h4>
             <p>
-              Role-based access, authentication,
-              and protected data handling.
+              Predict overcrowding and potential stampedes using real-time density heatmaps and AI forecasting.
             </p>
           </div>
 
           <div className="card">
-            <h4>Authority Dashboard</h4>
+            <h4>Incidents Log</h4>
             <p>
-              Dedicated dashboards for Police Department,
-              Tourism Department, and Emergency Response Teams.
+              Comprehensive digital FIR system. Track case status from reporting to resolution with transparency.
             </p>
           </div>
 
           <div className="card">
-            <h4>Analytics & Reports</h4>
+            <h4>Authority Sync</h4>
             <p>
-              View system insights like active tourists,
-              incident trends, and response time analysis.
+              Unified communication channel between Police, Medical Teams, and Tourism Board.
             </p>
           </div>
         </div>
@@ -102,17 +96,16 @@ export default function Landing() {
 
       {/* CTA */}
       <section className="cta">
-        <h2>Empower Your Research with Predictive Insights</h2>
-
+        <h2>Ready to make tourism safer and smarter?</h2>
         <button className="primary-btn" onClick={() => navigate("/login")}>
-          🚀 Get Started
+          Get Started Now
         </button>
       </section>
 
       {/* FOOTER */}
       <footer>
-        Built for Hackathon / Smart Governance Initiative <br />
-        © 2025 Smart Tourist Safety System
+        <p>Built with ❤️ for the Future of Smart Governance</p>
+        <p style={{ opacity: 0.5, marginTop: '10px' }}>© 2025 Smart Tourist Safety System</p>
       </footer>
     </div>
   );

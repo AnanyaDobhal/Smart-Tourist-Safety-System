@@ -11,7 +11,7 @@ export default function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/map" element={<LiveMap />} />
+      <Route path="/live-map" element={<LiveMap />} />
       <Route path="/alerts" element={<AlertsIncidents />} />
     </Routes>
   );

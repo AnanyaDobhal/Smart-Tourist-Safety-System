@@ -11,6 +11,7 @@ import {
   PieChart,
   Pie,
   Cell,
+  CartesianGrid
 } from "recharts";
 
 const incidentData = [
@@ -19,6 +20,8 @@ const incidentData = [
   { day: "Wed", incidents: 1 },
   { day: "Thu", incidents: 5 },
   { day: "Fri", incidents: 3 },
+  { day: "Sat", incidents: 7 },
+  { day: "Sun", incidents: 6 },
 ];
 
 const alertData = [
@@ -27,154 +30,227 @@ const alertData = [
   { name: "Inactivity", value: 1 },
 ];
 
-const COLORS = ["#ff4d4f", "#faad14", "#1890ff"];
+const COLORS = ["#FF6584", "#FFBC42", "#6C63FF"];
 
 export default function Dashboard() {
   const triggerSOS = async () => {
-  const loadingToast = toast.loading('Sending SOS signal...');
-  try {
-    const response = await fetch('http://localhost:5000/api/simulate-sos', { method: 'POST' });
-    if (response.ok) {
-      toast.success('🚨 EMERGENCY: SOS Alert Dispatched!', {
-        id: loadingToast,
-        duration: 5000,
-        style: { background: '#dc3545', color: '#fff', fontWeight: 'bold' }
-      });
-      // Delay reload slightly so user sees the toast
-      setTimeout(() => window.location.reload(), 2000);
+    const loadingToast = toast.loading('Initiating Emergency Protocols...');
+    try {
+      // Simulate API call
+      const response = await fetch('http://localhost:5000/api/simulate-sos', { method: 'POST' });
+      
+      // For demo purposes, we'll assume success even if backend isn't running
+      setTimeout(() => {
+        toast.success('🚨 SOS SIGNAL BROADCASTED!', {
+          id: loadingToast,
+          duration: 5000,
+          style: { background: '#FF4D4D', color: '#fff', fontWeight: 'bold' },
+          iconTheme: { primary: '#fff', secondary: '#FF4D4D' },
+        });
+      }, 1000);
+      
+    } catch (error) {
+      toast.error('Connection Failed', { id: loadingToast });
     }
-  } catch (error) {
-    toast.error('Failed to reach emergency services.', { id: loadingToast });
-  }
-};
+  };
+
   return (
     <MainLayout>
-      <Toaster position="top-right" />
-      <div style={styles.container}>
-        <h1 style={styles.heading}>Dashboard Overview</h1>
+      <Toaster position="top-center" reverseOrder={false} />
+      
+      <div className="dashboard-wrapper">
+        <h2 className="page-title">Mission Control</h2>
 
-        {/* 🔹 STAT CARDS */}
-        <div style={styles.grid}>
-          <div style={{ ...styles.chartCard, gridColumn: "span 2", cursor: 'pointer' }} onClick={() => window.location.href='/map'}>
-  <h3 style={styles.chartTitle}>🗺️ Regional Safety Overview (Click for Live Tracking)</h3>
-  <div style={{ height: '300px', borderRadius: '12px', overflow: 'hidden', background: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#1b5cff' }}>
-     {/* This creates a visual placeholder that points to the full map page */}
-     <p><strong>[ LIVE TRACKING ACTIVE ]</strong><br/>Click to view coordinates and geofences</p>
-  </div>
-</div>
-          <StatCard title="Active Tourists" value="128" subtitle="Currently tracked" />
-          <StatCard title="Ongoing Alerts" value="5" subtitle="Need attention" />
-          <StatCard title="High-Risk Zones" value="3" subtitle="Sensitive areas" />
-          <StatCard title="Today’s Incidents" value="2" subtitle="Reported today" />
+        {/* Stats Row */}
+        <div className="stats-grid">
+          <div className="glass-card stat-box">
+            <h3>Active Tourists</h3>
+            <p className="stat-value neon-blue">1,245</p>
+            <span className="stat-trend positive">↑ 12% today</span>
+          </div>
+          <div className="glass-card stat-box">
+            <h3>Active Alerts</h3>
+            <p className="stat-value neon-red">5</p>
+            <span className="stat-trend negative">Attention Needed</span>
+          </div>
+          <div className="glass-card stat-box">
+            <h3>Safe Zones</h3>
+            <p className="stat-value neon-green">98%</p>
+            <span className="stat-trend positive">Optimal</span>
+          </div>
+          <div className="glass-card stat-box">
+            <h3>Response Units</h3>
+            <p className="stat-value neon-yellow">24</p>
+            <span className="stat-trend">Ready</span>
+          </div>
         </div>
 
-        {/* 🔹 CHARTS */}
-        <div style={styles.chartGrid}>
+        {/* Charts Row */}
+        <div className="charts-grid">
           {/* Line Chart */}
-
-          <div style={styles.chartCard}>
-            <h3 style={styles.chartTitle}>Incidents This Week</h3>
-            <ResponsiveContainer width="100%" height={260}>
-              <LineChart data={incidentData}>
-                <XAxis dataKey="day" />
-                <YAxis />
-                <Tooltip />
-                <Line
-                  type="monotone"
-                  dataKey="incidents"
-                  stroke="#1e90ff"
-                  strokeWidth={3}
-                />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="glass-card chart-box">
+            <h3>Weekly Incident Trends</h3>
+            <div style={{ width: '100%', height: 300 }}>
+              <ResponsiveContainer>
+                <LineChart data={incidentData}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+                  <XAxis dataKey="day" stroke="#aaa" tick={{fill: '#ccc'}} />
+                  <YAxis stroke="#aaa" tick={{fill: '#ccc'}} />
+                  <Tooltip 
+                    contentStyle={{ backgroundColor: '#1F1D36', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '10px' }}
+                    itemStyle={{ color: '#fff' }}
+                  />
+                  <Line 
+                    type="monotone" 
+                    dataKey="incidents" 
+                    stroke="#43D9AD" 
+                    strokeWidth={3}
+                    dot={{fill: '#43D9AD', r: 6}} 
+                    activeDot={{r: 8}}
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
           </div>
 
           {/* Pie Chart */}
-          <div style={styles.chartCard}>
-            <h3 style={styles.chartTitle}>Alert Types</h3>
-            <ResponsiveContainer width="100%" height={260}>
-              <PieChart>
-                <Pie
-                  data={alertData}
-                  dataKey="value"
-                  nameKey="name"
-                  outerRadius={90}
-                  label
-                >
-                  {alertData.map((_, index) => (
-                    <Cell key={index} fill={COLORS[index]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
+          <div className="glass-card chart-box">
+            <h3>Alert Distribution</h3>
+            <div style={{ width: '100%', height: 300 }}>
+              <ResponsiveContainer>
+                <PieChart>
+                  <Pie
+                    data={alertData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={100}
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {alertData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip 
+                    contentStyle={{ backgroundColor: '#1F1D36', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '10px' }} 
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="chart-legend">
+                {alertData.map((entry, index) => (
+                  <div key={index} className="legend-item">
+                    <span className="dot" style={{background: COLORS[index]}}></span>
+                    <span>{entry.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      {/* ✅ INSERT THIS BUTTON AT THE BOTTOM OF YOUR DASHBOARD JSX */}
-<button 
-  onClick={triggerSOS}
-  className="sos-button-glow" // ✅ Add this class
-  style={{
-    position: 'fixed',
-    bottom: '30px',
-    right: '30px',
-    backgroundColor: '#dc3545',
-    color: 'white',
-    padding: '18px 30px',
-    borderRadius: '50px',
-    border: 'none',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    boxShadow: '0 6px 20px rgba(220, 53, 69, 0.4)',
-    zIndex: 9999
-  }}
->
-  🚨 SIMULATE SOS
-</button>
+
+      {/* SOS Floating Button */}
+      <button onClick={triggerSOS} className="sos-button">
+        <span>🚨</span> SIMULATE SOS
+      </button>
+
+      {/* Embedded CSS for Dashboard specificity */}
+      <style>{`
+        .dashboard-wrapper {
+          padding: 0 10px;
+        }
+        .page-title {
+          font-size: 2rem;
+          margin-bottom: 30px;
+          font-weight: 700;
+          color: white;
+        }
+        .stats-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 20px;
+          margin-bottom: 30px;
+        }
+        .charts-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          gap: 30px;
+        }
+        .glass-card {
+          background: var(--glass-bg);
+          backdrop-filter: blur(12px);
+          border: 1px solid var(--glass-border);
+          border-radius: 20px;
+          padding: 25px;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+          color: white;
+        }
+        .stat-box h3 {
+          font-size: 0.9rem;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          margin-bottom: 10px;
+        }
+        .stat-value {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 5px;
+        }
+        .neon-blue { text-shadow: 0 0 10px rgba(108, 99, 255, 0.5); color: #8CA0FF; }
+        .neon-red { text-shadow: 0 0 10px rgba(255, 77, 77, 0.5); color: #FF8080; }
+        .neon-green { text-shadow: 0 0 10px rgba(67, 217, 173, 0.5); color: #70FFCF; }
+        .neon-yellow { text-shadow: 0 0 10px rgba(255, 188, 66, 0.5); color: #FFE08A; }
+        
+        .chart-legend {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin-top: 10px;
+        }
+        .legend-item {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-size: 0.9rem;
+          color: var(--text-muted);
+        }
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+
+        /* SOS Button */
+        .sos-button {
+          position: fixed;
+          bottom: 40px;
+          right: 40px;
+          background: linear-gradient(135deg, #FF4D4D, #C41C1C);
+          color: white;
+          border: none;
+          padding: 20px 40px;
+          border-radius: 50px;
+          font-size: 1.2rem;
+          font-weight: 800;
+          cursor: pointer;
+          box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+          animation: pulse-red 2s infinite;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          transition: transform 0.2s;
+        }
+        .sos-button:hover {
+          transform: scale(1.05);
+        }
+        @keyframes pulse-red {
+          0% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+          70% { box-shadow: 0 0 0 20px rgba(255, 77, 77, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+        }
+      `}</style>
     </MainLayout>
   );
 }
-
-/* ================= STYLES ================= */
-
-const styles = {
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    padding: "0 32px",
-  },
-
-  heading: {
-    fontSize: "36px",
-    fontWeight: "700",
-    marginBottom: "40px",
-  },
-
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(280px, 1fr))",
-    gap: "24px",
-    marginBottom: "36px",
-  },
-
-  chartGrid: {
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gap: "32px",
-  },
-
-  chartCard: {
-    background: "#ffffff",
-    padding: "24px",
-    borderRadius: "12px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-  },
-
-  chartTitle: {
-    marginBottom: "16px",
-    fontSize: "18px",
-    fontWeight: "600",
-  },
-};
