@@ -3,7 +3,6 @@ import MainLayout from "../layout/MainLayout";
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-
 /* ================= FIX LEAFLET ICON ================= */
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -55,7 +54,11 @@ export default function LiveMap() {
   const [showTourists, setShowTourists] = useState(true);
   const [showAlerts, setShowAlerts] = useState(true);
   const [showZones, setShowZones] = useState(true);
-
+<Circle 
+  center={[27.1751, 78.0421]} // Taj Mahal
+  pathOptions={{ fillColor: 'blue', color: 'blue' }} 
+  radius={1000} // 1km radius
+/>
   /* ========== FETCH FROM BACKEND ========== */
   useEffect(() => {
     async function fetchData() {
@@ -74,7 +77,11 @@ export default function LiveMap() {
 
     fetchData();
   }, []);
-
+const simulateBreach = async () => {
+  await fetch('http://localhost:5000/api/simulate-breach', { method: 'POST' });
+  alert("⚠️ Geofence Breach Detected!");
+  window.location.reload();
+};
   return (
     
     <MainLayout>
@@ -113,13 +120,13 @@ export default function LiveMap() {
           <MapContainer
             center={[28.6139, 77.209]}
             zoom={11}
-            style={{ height: "100%", width: "100%" }}
+            style={{ height: "75vh", width: "100%" }}
           >
             <TileLayer
-              attribution="© OpenStreetMap"
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-
+  attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
+  /* ✅ THIS URL GIVES THE COOL DARK THEME */
+  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+/>
             {/* TOURISTS */}
             {showTourists &&
               tourists.map((t) => (
@@ -170,6 +177,7 @@ export default function LiveMap() {
           </div>
         </div>
       </div>
+      <button onClick={simulateBreach} style={{ width: '100%', padding: '10px', backgroundColor: '#ffc107', border: 'none', borderRadius: '5px', marginTop: '10px', fontWeight: 'bold', cursor: 'pointer' }} > 🚧 Simulate Boundary Breach </button>
     </MainLayout>
   );
 }

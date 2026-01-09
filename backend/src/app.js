@@ -37,6 +37,22 @@ app.post('/api/simulate-sos', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.post('/api/simulate-breach', async (req, res) => {
+  const { Alert, Tourist } = require('./models');
+  try {
+    const tourist = await Tourist.findOne();
+    const breachAlert = await Alert.create({
+      tourist_id: tourist.id,
+      touristId: tourist.id,
+      alert_type: "Geofence Breach",
+      message: "⚠️ WARNING: Tourist has exited the Taj Mahal Safe Perimeter!",
+      timestamp: new Date()
+    });
+    res.status(201).json({ message: "Breach alert created!", alert: breachAlert });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 // Routes
 app.use('/api/tourist', require('./routes/tourist.routes'));
 app.use('/api/location', require('./routes/location.routes'));

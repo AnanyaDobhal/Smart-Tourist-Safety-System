@@ -12,7 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* Ensures Leaflet is always visible */
+.leaflet-container {
+  width: 100%;
+  height: 500px !important; /* Force a height for the demo */
+  z-index: 1;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -23,9 +28,7 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  
   min-width: 320px;
   min-height: 100vh;
 }

@@ -76,3 +76,22 @@
 .header-right span:hover {
   color: #1b5cff;
 }
+/* Pulsing red animation for the SOS button */
+/* ✅ SOS Button Pulse Animation */
+@keyframes pulse-red {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(220, 53, 69, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.sos-button-glow {
+  animation: pulse-red 2s infinite !important;
+}
+
+/* Ensure Dashboard cards look high-tech */
+.dashboard-card {
+  transition: transform 0.3s ease;
+}
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
