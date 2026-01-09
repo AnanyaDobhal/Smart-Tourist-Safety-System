@@ -6,6 +6,7 @@ const Tourist = sequelize.define(
   {
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4, // Add this line
       primaryKey: true
     },
     fullName: {
