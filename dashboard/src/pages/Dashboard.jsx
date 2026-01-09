@@ -29,6 +29,19 @@ const alertData = [
 const COLORS = ["#ff4d4f", "#faad14", "#1890ff"];
 
 export default function Dashboard() {
+  const triggerSOS = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/api/simulate-sos', {
+      method: 'POST',
+    });
+    const data = await response.json();
+    alert("Emergency SOS Sent to Authorities!");
+    // This will let you see the new alert if you refresh the page
+    window.location.reload(); 
+  } catch (error) {
+    console.error("Failed to simulate SOS:", error);
+  }
+};
   return (
     <MainLayout>
       <div style={styles.container}>
@@ -84,6 +97,30 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      {/* ✅ INSERT THIS BUTTON AT THE BOTTOM OF YOUR DASHBOARD JSX */}
+<button 
+  onClick={triggerSOS}
+  style={{
+    position: 'fixed',
+    bottom: '30px',
+    right: '30px',
+    backgroundColor: '#dc3545', // Danger Red
+    color: 'white',
+    padding: '18px 30px',
+    borderRadius: '50px',
+    border: 'none',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    boxShadow: '0 6px 20px rgba(220, 53, 69, 0.4)',
+    zIndex: 9999,
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px'
+  }}
+>
+  🚨 SIMULATE SOS
+</button>
     </MainLayout>
   );
 }

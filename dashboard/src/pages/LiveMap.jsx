@@ -76,6 +76,7 @@ export default function LiveMap() {
   }, []);
 
   return (
+    
     <MainLayout>
       <div style={styles.wrapper}>
         {/* ===== FILTER PANEL ===== */}
