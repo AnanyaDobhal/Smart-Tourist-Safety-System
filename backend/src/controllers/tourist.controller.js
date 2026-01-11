@@ -35,7 +35,11 @@ exports.registerTourist = async (req, res) => {
     };
 
     // ✅ 3. Sign tourist data
+<<<<<<< HEAD
     const signature = signData(privateKey,touristData);
+=======
+    const signature = signData(touristData, privateKey);
+>>>>>>> da8099354c084b953045624b58d63513c696db65
 
     // ✅ 4. Save to database
     const tourist = await Tourist.create({
@@ -46,6 +50,7 @@ exports.registerTourist = async (req, res) => {
 
     // ✅ 5. Response
     res.status(201).json({
+<<<<<<< HEAD
   message: 'Digital Tourist ID Generated',
   touristId: tourist.id,
   publicKey,
@@ -53,6 +58,15 @@ exports.registerTourist = async (req, res) => {
   digitalSignature: signature,
   validTill: visitEnd
 });
+=======
+      message: 'Digital Tourist ID Generated',
+      touristId: tourist.id,
+      publicKey,
+      digitalSignature: signature,
+      validTill: visitEnd
+    });
+
+>>>>>>> da8099354c084b953045624b58d63513c696db65
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

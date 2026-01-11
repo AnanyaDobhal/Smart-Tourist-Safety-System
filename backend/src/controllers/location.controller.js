@@ -1,11 +1,16 @@
 const { saveLocation } = require('../services/location.service');
 const { verifySignature } = require('../services/pki.service');
+<<<<<<< HEAD
 const Tourist = require('../models/Tourist'); // <--- FIXED: Import Tourist
 
+=======
+const User = require('../models/User');
+>>>>>>> da8099354c084b953045624b58d63513c696db65
 /**
  * LIVE LOCATION UPDATE API
  */
 exports.updateLocation = async (req, res) => {
+<<<<<<< HEAD
   try {
     const { user_id, payload, signature } = req.body;
 
@@ -44,3 +49,25 @@ exports.updateLocation = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+=======
+  const { user_id, payload, signature } = req.body;
+
+  const user = await User.findByPk(user_id);
+
+  if (!user || !user.public_key) {
+    return res.status(401).json({ error: "Key not registered" });
+  }
+
+  const isValid = verifySignature(
+    user.public_key,
+    payload,
+    signature
+  );
+
+  if (!isValid) {
+    return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  // ✅ PKI passed → now update location
+};
+>>>>>>> da8099354c084b953045624b58d63513c696db65
