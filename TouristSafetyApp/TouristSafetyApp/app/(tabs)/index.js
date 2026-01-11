@@ -5,9 +5,7 @@ import KJUR from 'jsrsasign';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-// ⚠️ REPLACE WITH YOUR LAPTOP'S LOCAL IP (Use ipconfig/ifconfig)
-// Example: 'http://192.168.1.5:3000/api'
-const API_URL = 'http://localhost:5000/api'; 
+const API_URL = 'http://192.168.29.194:5000/api'; 
 
 export default function App() {
   const [touristId, setTouristId] = useState(null);
@@ -47,11 +45,11 @@ export default function App() {
     if (!fullName || !passport) return Alert.alert("Error", "Fill all fields");
     setLoading(true);
     try {
-      const res = await axios.post(`${API_URL}/tourist/register`, {
-        fullName,
-        passportNumber: passport,
-        visitStart: new Date().toISOString(),
-        visitEnd: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString() // +7 days
+      const res = await axios.post(`${API_URL}/auth/register`, {
+        name: fullName,
+        passport: passport,
+        visitStart,
+        visitEnd
       });
 
       const { touristId, privateKey } = res.data;
