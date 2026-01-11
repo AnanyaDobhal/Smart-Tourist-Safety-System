@@ -1,5 +1,0 @@
-postgre sql download
-flask 
-postman download 
-admin-tourism dept admin
-police-
