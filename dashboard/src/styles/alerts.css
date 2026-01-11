@@ -1,0 +1,130 @@
+/* .alerts-page { padding: 16px; }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  padding: 14px;
+  border-radius: 10px;
+  color: white;
+}
+
+.red { background: #e53935; }
+.orange { background: #fb8c00; }
+.green { background: #43a047; }
+.blue { background: #1e88e5; }
+
+.filters-row {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.alerts-content {
+  display: flex;
+  gap: 16px;
+}
+
+.alert-table {
+  width: 65%;
+  background: white;
+  border-radius: 10px;
+}
+
+.alert-table td, th {
+  padding: 10px;
+}
+
+.type.panic { color: red; }
+.type.ai { color: orange; }
+.type.geo { color: goldenrod; }
+
+.alert-details {
+  width: 35%;
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.actions button {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+}
+
+.resolve {
+  background: green;
+  color: white;
+}
+
+.filters-row {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 16px;
+} */
+/* src/styles/alerts.css */
+
+.alerts-page-wrapper {
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Table Styling */
+.alerts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.alerts-table th {
+  text-align: left;
+  padding: 18px;
+  color: #8CA0FF; /* Soft Blue */
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.alerts-table td {
+  padding: 16px;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.alerts-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.alerts-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .alerts-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
