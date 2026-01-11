@@ -1,3 +1,4 @@
+console.log('✅ auth.routes.js loaded');
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth.controller');
