@@ -17,7 +17,6 @@ const Alert = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    // ✅ ADD THESE TWO FIELDS
     latitude: {
       type: DataTypes.FLOAT,
       allowNull: true
@@ -29,6 +28,11 @@ const Alert = sequelize.define(
     message: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    // ✅ ADD THIS NEW COLUMN
+    status: {
+      type: DataTypes.ENUM('ACTIVE', 'RESOLVED'),
+      defaultValue: 'ACTIVE'
     },
     timestamp: {
       type: DataTypes.DATE,

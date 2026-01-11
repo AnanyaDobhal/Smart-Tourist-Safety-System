@@ -1,8 +1,8 @@
 const { createAlert } = require('../services/alert.service');
-const Alert = require('../models/Alert'); // <--- ADD THIS IMPORT
+const Alert = require('../models/Alert');
+
 /**
  * PANIC BUTTON API
- * Triggered when tourist presses panic button
  */
 exports.panicAlert = async (req, res) => {
   try {
@@ -19,31 +19,45 @@ exports.panicAlert = async (req, res) => {
       longitude
     });
 
-    res.status(201).json({
-      message: 'PANIC alert triggered',
-      alert
-    });
-
-
+    res.status(201).json({ message: 'PANIC alert triggered', alert });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
-
-// ... keep panicAlert as it is ...
-
 /**
- * GET ALL ALERTS (For Dashboard)
+ * GET ALL ALERTS
  */
 exports.getAlerts = async (req, res) => {
   try {
-    // Fetch latest 10 alerts, newest first
+    // Show newest first
     const alerts = await Alert.findAll({
-      limit: 10,
-      order: [['timestamp', 'DESC']]
+      order: [['timestamp', 'DESC']],
+      limit: 50
     });
     res.json(alerts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+/**
+ * ✅ NEW: RESOLVE ALERT API
+ */
+exports.resolveAlert = async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const alert = await Alert.findByPk(id);
+    if (!alert) {
+      return res.status(404).json({ error: "Alert not found" });
+    }
+
+    // Update status
+    alert.status = 'RESOLVED';
+    await alert.save();
+
+    res.json({ message: "Alert resolved successfully", alert });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

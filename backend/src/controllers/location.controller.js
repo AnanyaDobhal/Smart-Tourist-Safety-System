@@ -10,10 +10,13 @@ exports.updateLocation = async (req, res) => {
     const { user_id, payload, signature } = req.body;
 
     // 1. Find the TOURIST (not User)
+    // The app sends the Tourist ID, so we must check the Tourist table
     const tourist = await Tourist.findByPk(user_id);
 
-    // 2. Validate Tourist and Key (Use 'publicKey' camelCase)
+    // 2. Validate Tourist and Key
+    // Note: Tourist model uses 'publicKey' (camelCase), not 'public_key'
     if (!tourist || !tourist.publicKey) {
+      console.log("❌ Tourist not found or Key missing for ID:", user_id);
       return res.status(401).json({ error: "Tourist not found or Key not registered" });
     }
 
@@ -25,10 +28,11 @@ exports.updateLocation = async (req, res) => {
     );
 
     if (!isValid) {
+      console.log("❌ Invalid Signature for Tourist:", user_id);
       return res.status(401).json({ error: "Invalid signature" });
     }
 
-    // 4. Save Location (This code was missing)
+    // 4. Save Location
     const { latitude, longitude } = payload;
     
     await saveLocation({
@@ -37,6 +41,7 @@ exports.updateLocation = async (req, res) => {
       longitude
     });
 
+    console.log(`✅ Location updated for ${tourist.fullName}`);
     res.status(200).json({ message: "Location updated successfully" });
 
   } catch (err) {

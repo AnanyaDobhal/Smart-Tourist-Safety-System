@@ -5,7 +5,10 @@ const controller = require('../controllers/alert.controller');
 // Panic button
 router.post('/panic', controller.panicAlert);
 
-// ✅ ADD THIS: Get Alerts for Dashboard
+// Get all alerts (Dashboard)
 router.get('/', controller.getAlerts);
+
+// ✅ NEW: Resolve Alert Endpoint
+router.put('/:id/resolve', controller.resolveAlert);
 
 module.exports = router;
