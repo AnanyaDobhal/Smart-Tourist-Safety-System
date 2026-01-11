@@ -2,13 +2,11 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const { sequelize } = require('./models'); // ✅ IMPORTANT
-
+const { sequelize } = require('./models');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 // DB connection
 sequelize.authenticate()
   .then(() => console.log('PostgreSQL connected'))
@@ -57,5 +55,6 @@ app.post('/api/simulate-breach', async (req, res) => {
 app.use('/api/tourist', require('./routes/tourist.routes'));
 app.use('/api/location', require('./routes/location.routes'));
 app.use('/api/alerts', require('./routes/alert.routes'));
+app.use('/api/auth', require('./routes/auth.routes'));
 
 module.exports = app;
