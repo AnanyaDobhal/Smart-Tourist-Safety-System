@@ -17,7 +17,6 @@ const Alert = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-<<<<<<< HEAD
     // ✅ ADD THESE TWO FIELDS
     latitude: {
       type: DataTypes.FLOAT,
@@ -27,8 +26,6 @@ const Alert = sequelize.define(
       type: DataTypes.FLOAT,
       allowNull: true
     },
-=======
->>>>>>> da8099354c084b953045624b58d63513c696db65
     message: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -39,18 +36,9 @@ const Alert = sequelize.define(
     }
   },
   {
-<<<<<<< HEAD
     tableName: 'alerts',
     timestamps: false
   }
 );
 
 module.exports = Alert;
-=======
-    tableName: 'alerts',   // ✅ EXACT DB table
-    timestamps: false      // ✅ DB already manages time
-  }
-);
-
-module.exports = Alert;
->>>>>>> da8099354c084b953045624b58d63513c696db65

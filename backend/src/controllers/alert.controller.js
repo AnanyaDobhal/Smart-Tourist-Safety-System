@@ -1,9 +1,5 @@
 const { createAlert } = require('../services/alert.service');
-<<<<<<< HEAD
 const Alert = require('../models/Alert'); // <--- ADD THIS IMPORT
-=======
-
->>>>>>> da8099354c084b953045624b58d63513c696db65
 /**
  * PANIC BUTTON API
  * Triggered when tourist presses panic button
@@ -32,7 +28,6 @@ exports.panicAlert = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-<<<<<<< HEAD
 };
 
 
@@ -52,6 +47,4 @@ exports.getAlerts = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-=======
->>>>>>> da8099354c084b953045624b58d63513c696db65
 };
