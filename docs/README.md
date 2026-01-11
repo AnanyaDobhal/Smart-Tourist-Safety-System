@@ -2,28 +2,6 @@
 
 <h1>🛡️ Smart Tourist Safety System</h1>
 
-<p>
-<strong>Secure. Real-time. Verifiable.</strong>
-</p>
-<p>
-<em>A Next-Gen Incident Response Platform protecting tourists using PKI & Live Geolocation.</em>
-</p>
-
-<p>
-<a href="#">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Status-Prototype_Ready-success%3Fstyle%3Dfor-the-badge%26logo%3Dstatuspage%26logoColor%3Dwhite" alt="Status" />
-</a>
-<a href="#">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Security-PKI_Signed-red%3Fstyle%3Dfor-the-badge%26logo%3Dsecurity%26logoColor%3Dwhite" alt="Security" />
-</a>
-<a href="#">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/Stack-React_Native_%257C_Node_%257C_PostgreSQL-blue%3Fstyle%3Dfor-the-badge%26logo%3Dreact%26logoColor%3Dwhite" alt="Stack" />
-</a>
-<a href="#">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-ISC-green%3Fstyle%3Dfor-the-badge" alt="License" />
-</a>
-</p>
-
 <br />
 
 <p align="center">
@@ -31,6 +9,18 @@
 </p>
 
 </div>
+
+🚀 Project Overview
+
+A Next-Gen Incident Response Platform protecting tourists using PKI & Live Geolocation.
+
+This system is built on three core pillars:
+
+🔐 Secure: Uses PKI (Public Key Infrastructure) to digitally sign every location update, ensuring that only registered devices can send data.
+
+⚡ Real-time: Provides instantaneous communication between tourists and police dashboards, reducing response times in critical situations.
+
+✅ Verifiable: Ensures data integrity by mathematically validating signatures, effectively preventing location spoofing or false alerts.
 
 🚨 The Challenge
 
@@ -200,9 +190,4 @@ Real-time incident tracking
 
 <div align="center">
 <p>Built with ❤️ for a Safer World.</p>
-<p>
-<a href="https://github.com/yourusername">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-Profile-black%3Fstyle%3Dflat%26logo%3Dgithub" alt="GitHub" />
-</a>
-</p>
 </div>
