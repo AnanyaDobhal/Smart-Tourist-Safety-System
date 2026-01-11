@@ -1,277 +1,208 @@
-<<<<<<< HEAD
-# 🛡️ Smart Tourist Safety Monitoring & Incident Response System
+<div align="center">
 
-A **hackathon prototype** that demonstrates a smart, secure, and real-time tourist safety platform using  
-**AI, Cryptography (PKI), Geo-location, and Web Dashboards**.
+<h1>🛡️ Smart Tourist Safety System</h1>
 
----
+<p>
+<strong>Secure. Real-time. Verifiable.</strong>
+</p>
+<p>
+<em>A Next-Gen Incident Response Platform protecting tourists using PKI & Live Geolocation.</em>
+</p>
 
-## 🚀 Problem Statement
+<p>
+<a href="https://www.google.com/search?q=https://github.com/yourusername/repo">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Status-Prototype_Ready-success%3Fstyle%3Dfor-the-badge%26logo%3Dstatuspage%26logoColor%3Dwhite" alt="Status" />
+</a>
+<a href="#">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Security-PKI_Signed-red%3Fstyle%3Dfor-the-badge%26logo%3Dsecurity%26logoColor%3Dwhite" alt="Security" />
+</a>
+<a href="#">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Stack-React_Native_%257C_Node_%257C_PostgreSQL-blue%3Fstyle%3Dfor-the-badge%26logo%3Dreact%26logoColor%3Dwhite" alt="Stack" />
+</a>
+<a href="#">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/License-ISC-green%3Fstyle%3Dfor-the-badge" alt="License" />
+</a>
+</p>
 
-Tourist safety in remote and high-risk regions requires **real-time monitoring, rapid incident response, and secure identity verification**.
+<br />
 
-Traditional manual systems fail due to:
-- Lack of live visibility
-- Delayed response time
-- No secure, verifiable tourist identity
-- Poor coordination between departments
+<p align="center">
+<img src="https://www.google.com/search?q=https://via.placeholder.com/800x400.png%3Ftext%3DPlace%2BYour%2BDashboard%2BScreenshot%2Bor%2BDemo%2BGIF%2BHere" alt="Project Banner" width="100%" />
+</p>
 
-This project proposes a **Smart Tourist Safety System** that digitally protects tourists while respecting privacy.
+</div>
 
----
+🚨 The Challenge
 
-## 🎯 Key Features (Prototype Scope)
+In remote or high-tourism zones, safety infrastructure is often fragmented and slow.
 
-### ✅ Digital Tourist ID (PKI-based)
-- Secure tourist registration
-- UUID-based Tourist ID
-- RSA digital signature (tamper-proof)
-- Time-bound validity
+🕵️‍♂️ Identity Gaps: Authorities cannot instantly verify if a distress signal is from a legitimate tourist or a prank.
 
-### 🚨 Panic Button & Live Alerts
-- Tourist can trigger panic alert
-- Live GPS location captured
-- Alert stored securely in backend
-- Real-time visibility on police dashboard
+🐢 Latency: Traditional emergency calls (911/112) struggle to pinpoint precise GPS coordinates in real-time.
 
-### 🗺️ Police Dashboard (Web)
-- Sidebar + header UI (government-style)
-- Dashboard overview
-- Live Tourist Map (OpenStreetMap)
-- Active alerts visualization
-- Click marker → view alert details
+🔓 Data Trust: Location data can be spoofed, leading to wasted police resources.
 
-### 🔐 Security First
-- UUID enforcement
-- PKI & digital signatures
-- API-first backend
-- Clear separation of concerns
+<br />
 
----
+💡 The Solution
 
-## 🧱 Tech Stack
+The Smart Tourist Safety System bridges the gap between tourists and law enforcement with a unified full-stack platform:
 
-### Frontend
-- **React.js** (Vite)
-- **Leaflet + OpenStreetMap**
-- Axios
-- React Router
+For Tourists: A mobile app acting as a "Digital Bodyguard," signing every GPS update with a private RSA key.
 
-### Backend
-- **Node.js + Express**
-- PostgreSQL
-- Sequelize ORM
-- JWT (ready, partially implemented)
+For Police: A real-time "Command Center" dashboard that validates signatures, visualizes SOS alerts, and manages incidents.
 
-### Security
-- RSA Cryptography (Node.js `crypto`)
-- UUID-based identity
-- Digital signatures
+🌟 Key Features
 
----
+<table>
+<tr>
+<td width="50%">
+<h3>🔐 Digital Identity (PKI)</h3>
+<p>Every tourist is issued a unique <strong>Digital ID</strong> upon registration. A private key is generated locally on their device, ensuring that <strong>only</strong> the registered device can send valid location updates.</p>
+</td>
+<td width="50%">
+<h3>📍 Tamper-Proof Tracking</h3>
+<p>GPS coordinates are <strong>digitally signed</strong> using RSA cryptography before leaving the phone. This prevents "spoofing" or fake location attacks.</p>
+</td>
+</tr>
+<tr>
+<td>
+<h3>🆘 One-Tap Panic Mode</h3>
+<p>Triggers an immediate high-priority alert. It forces a high-accuracy GPS fix, sets alert priority to <strong>CRITICAL</strong>, and pushes data to the Police Dashboard instantly.</p>
+</td>
+<td>
+<h3>🗺️ Live Command Dashboard</h3>
+<p>Real-time cluster maps for high-density tourist areas, live scrolling lists of SOS signals, and automatic Geofence Monitoring.</p>
+</td>
+</tr>
+</table>
 
-## 📂 Project Structure
-smart-tourist-safety-system/
-│
-├── backend/ # Node.js + Express APIs 
-├── dashboard/ # React Police Dashboard
-├── ai-engine/ # AI / anomaly detection (future)
-├── database/ # DB schema & seed files
-└── README.md
+🛠️ Tech Stack
 
+Domain
 
----
+Technology
 
-## ▶️ How to Run the Project
+Key Highlights
 
-### 1️⃣ Start Backend
+📱 Mobile
 
-```bash
+React Native (Expo)
+
+Cross-platform, SecureStore, Expo Location
+
+💻 Frontend
+
+React.js + Vite
+
+Leaflet Maps, Real-time updates, Material UI
+
+⚙️ Backend
+
+Node.js + Express
+
+REST API, PKI Validation, Geofencing Logic
+
+💾 Database
+
+PostgreSQL
+
+Relational data, Sequelize ORM
+
+🔒 Security
+
+RSA Cryptography
+
+jsrsasign (App) & Node Crypto (Backend)
+
+🚀 Quick Start Guide
+
+Follow these steps to get the entire system running locally.
+
+📋 Prerequisites
+
+Node.js (v18+)
+
+PostgreSQL (Running locally)
+
+Expo Go App (on your phone)
+
+1️⃣ Backend Setup
+
+The brain of the operation.
+
 cd backend
 npm install
-npx nodemon src/server.js
-```
+# Create .env file with your DB credentials
+# Run Database Seeder (Critical for demo data!)
+node seed.js
+# Start Server
+npm run dev
 
-### 2️⃣ Register Tourist (API Test)
-```bash
-curl -X POST http://localhost:5000/api/tourist/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "fullName": "John Doe",
-    "passportNumber": "P1234567",
-    "visitStart": "2025-02-01",
-    "visitEnd": "2025-02-10"
-  }'
-```
-➡️ Copy the returned touristId.
 
-### 3️⃣ Trigger Panic Alert
-```bash
-curl -X POST http://localhost:5000/api/alerts/panic \
-  -H "Content-Type: application/json" \
-  -d '{
-    "touristId": "PASTE_REAL_TOURIST_ID_HERE",
-    "latitude": 27.1767,
-    "longitude": 78.0081
-  }'
-```
+Server runs on: http://localhost:5000
 
-### 4️⃣ Start Police Dashboard
-```bash
+2️⃣ Police Dashboard Setup
+
+The command center for authorities.
+
 cd dashboard
 npm install
 npm run dev
-```
-
-Open in browser:
-http://localhost:5173
-
-## 🔮 Future Enhancements
-
-- AI-based anomaly detection
-- Geo-fencing restricted zones
-- Firebase push notifications
-- Multilingual support
-- E-FIR automation
-- Mobile app (Flutter)
 
 
-=======
-# 🛡️ Smart Tourist Safety Monitoring & Incident Response System
+Open browser at: http://localhost:5173
 
-A **hackathon prototype** that demonstrates a smart, secure, and real-time tourist safety platform using  
-**AI, Cryptography (PKI), Geo-location, and Web Dashboards**.
+3️⃣ Mobile App Setup
 
----
+The tourist interface.
 
-## 🚀 Problem Statement
+⚠️ CRITICAL: The mobile app cannot access localhost. You must update the API URL to your computer's local IP.
 
-Tourist safety in remote and high-risk regions requires **real-time monitoring, rapid incident response, and secure identity verification**.
+Open TouristSafetyApp/TouristSafetyApp/app/(tabs)/index.js.
 
-Traditional manual systems fail due to:
-- Lack of live visibility
-- Delayed response time
-- No secure, verifiable tourist identity
-- Poor coordination between departments
+Find const API_URL and update it:
 
-This project proposes a **Smart Tourist Safety System** that digitally protects tourists while respecting privacy.
-
----
-
-## 🎯 Key Features (Prototype Scope)
-
-### ✅ Digital Tourist ID (PKI-based)
-- Secure tourist registration
-- UUID-based Tourist ID
-- RSA digital signature (tamper-proof)
-- Time-bound validity
-
-### 🚨 Panic Button & Live Alerts
-- Tourist can trigger panic alert
-- Live GPS location captured
-- Alert stored securely in backend
-- Real-time visibility on police dashboard
-
-### 🗺️ Police Dashboard (Web)
-- Sidebar + header UI (government-style)
-- Dashboard overview
-- Live Tourist Map (OpenStreetMap)
-- Active alerts visualization
-- Click marker → view alert details
-
-### 🔐 Security First
-- UUID enforcement
-- PKI & digital signatures
-- API-first backend
-- Clear separation of concerns
-
----
-
-## 🧱 Tech Stack
-
-### Frontend
-- **React.js** (Vite)
-- **Leaflet + OpenStreetMap**
-- Axios
-- React Router
-
-### Backend
-- **Node.js + Express**
-- PostgreSQL
-- Sequelize ORM
-- JWT (ready, partially implemented)
-
-### Security
-- RSA Cryptography (Node.js `crypto`)
-- UUID-based identity
-- Digital signatures
-
----
-
-## 📂 Project Structure
-smart-tourist-safety-system/
-│
-├── backend/ # Node.js + Express APIs 
-├── dashboard/ # React Police Dashboard
-├── ai-engine/ # AI / anomaly detection (future)
-├── database/ # DB schema & seed files
-└── README.md
+// Windows: run `ipconfig` | Mac: run `ifconfig`
+// Example:
+const API_URL = '[http://192.168.1.5:5000/api](http://192.168.1.5:5000/api)';
 
 
----
+Run the app:
 
-## ▶️ How to Run the Project
-
-### 1️⃣ Start Backend
-
-```bash
-cd backend
-npm install
-npx nodemon src/server.js
-```
-
-### 2️⃣ Register Tourist (API Test)
-```bash
-curl -X POST http://localhost:5000/api/tourist/register \
-  -H "Content-Type: application/json" \
-  -d '{
-    "fullName": "John Doe",
-    "passportNumber": "P1234567",
-    "visitStart": "2025-02-01",
-    "visitEnd": "2025-02-10"
-  }'
-```
-➡️ Copy the returned touristId.
-
-### 3️⃣ Trigger Panic Alert
-```bash
-curl -X POST http://localhost:5000/api/alerts/panic \
-  -H "Content-Type: application/json" \
-  -d '{
-    "touristId": "PASTE_REAL_TOURIST_ID_HERE",
-    "latitude": 27.1767,
-    "longitude": 78.0081
-  }'
-```
-
-### 4️⃣ Start Police Dashboard
-```bash
-cd dashboard
-npm install
-npm run dev
-```
-
-Open in browser:
-http://localhost:5173
-
-## 🔮 Future Enhancements
-
-- AI-based anomaly detection
-- Geo-fencing restricted zones
-- Firebase push notifications
-- Multilingual support
-- E-FIR automation
-- Mobile app (Flutter)
+cd TouristSafetyApp/TouristSafetyApp
+npx expo start
 
 
->>>>>>> da8099354c084b953045624b58d63513c696db65
+Scan the QR code with your phone.
+
+📸 Interface Preview
+
+Mobile SOS Interface
+
+Police Live Map
+
+<img src="https://www.google.com/search?q=https://via.placeholder.com/300x600.png%3Ftext%3DMobile%2BApp" alt="Mobile App" width="200" />
+
+<img src="https://www.google.com/search?q=https://via.placeholder.com/600x400.png%3Ftext%3DDashboard%2BMap" alt="Dashboard Map" width="400" />
+
+Simple, high-contrast UI
+
+Real-time incident tracking
+
+🔮 Future Roadmap
+
+[ ] 🤖 AI Anomaly Detection: Detect unusual movement patterns (e.g., sudden stops or deviation from route).
+
+[ ] 📡 Offline Mode: Cache GPS data when internet is lost and sync when online.
+
+[ ] 📲 SMS Fallback: Send SOS coordinates via SMS if data connection fails.
+
+<div align="center">
+<p>Built with ❤️ for a Safer World.</p>
+<p>
+<a href="https://github.com/yourusername">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/GitHub-Profile-black%3Fstyle%3Dflat%26logo%3Dgithub" alt="GitHub" />
+</a>
+</p>
+</div>
