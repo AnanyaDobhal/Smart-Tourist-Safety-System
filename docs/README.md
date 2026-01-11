@@ -10,7 +10,7 @@
 </p>
 
 <p>
-<a href="https://www.google.com/search?q=https://github.com/yourusername/repo">
+<a href="#">
 <img src="https://www.google.com/search?q=https://img.shields.io/badge/Status-Prototype_Ready-success%3Fstyle%3Dfor-the-badge%26logo%3Dstatuspage%26logoColor%3Dwhite" alt="Status" />
 </a>
 <a href="#">
@@ -27,7 +27,7 @@
 <br />
 
 <p align="center">
-<img src="https://www.google.com/search?q=https://via.placeholder.com/800x400.png%3Ftext%3DPlace%2BYour%2BDashboard%2BScreenshot%2Bor%2BDemo%2BGIF%2BHere" alt="Project Banner" width="100%" />
+<img src="https://www.google.com/search?q=https://placehold.co/800x400/png%3Ftext%3DPlace%2BYour%2BDashboard%2BScreenshot%2BHere" alt="Project Banner" width="100%" />
 </p>
 
 </div>
@@ -182,9 +182,9 @@ Mobile SOS Interface
 
 Police Live Map
 
-<img src="https://www.google.com/search?q=https://via.placeholder.com/300x600.png%3Ftext%3DMobile%2BApp" alt="Mobile App" width="200" />
+<img src="https://www.google.com/search?q=https://placehold.co/300x600/png%3Ftext%3DMobile%2BApp" alt="Mobile App" width="200" />
 
-<img src="https://www.google.com/search?q=https://via.placeholder.com/600x400.png%3Ftext%3DDashboard%2BMap" alt="Dashboard Map" width="400" />
+<img src="https://www.google.com/search?q=https://placehold.co/600x400/png%3Ftext%3DDashboard%2BMap" alt="Dashboard Map" width="400" />
 
 Simple, high-contrast UI
 
