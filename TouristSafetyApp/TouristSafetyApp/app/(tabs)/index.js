@@ -5,7 +5,7 @@ import KJUR from 'jsrsasign';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-const API_URL = 'http://192.168.29.194:5000/api'; 
+const API_URL = 'http://localhost:5000/api'; 
 
 export default function App() {
   const [touristId, setTouristId] = useState(null);
